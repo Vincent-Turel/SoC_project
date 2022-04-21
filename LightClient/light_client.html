@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Light Client</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="light_client.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<div class="eight">
+    <h1>Bike route planner</h1>
+</div>
+    <div id="conteneur">
+        <div id="formulaire">
+            <form>
+                <div class="mb-3">
+                    <label for="start" class="form-label">Current location :</label>
+                    <input type="text" class="form-control form-control-sm" id="start" name="start">
+                </div>
+                <div class="mb-3">
+                    <label for="end" class="form-label">Destination :</label>
+                    <input type="text" class="form-control form-control-sm" id="end" name="end">
+                </div>
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="findPathway();">Find pathway !</button>
+            </form>
+            <div id="result">
+                Lorem ipsum dolor sit amet. Ut aspernatur sunt quo nulla facilis non quae aliquid accusantium officiis aut provident tenetur hic natus labore. Ut blanditiis recusandae eum ratione rerum in rerum consequuntur. Vel consequatur nisi et recusandae dolores in autem eaque 33 laboriosam repudiandae nam facilis dolorem sit modi autem.
+
+                Eos nihil sint in rerum eveniet et dolorum aspernatur qui dignissimos sunt qui nihil odit aut provident culpa est repellendus similique? At magnam reprehenderit et incidunt internos At ducimus aliquam ut nisi inventore. Non nemo esse et corporis aliquid ut quae doloremque non necessitatibus optio.
+
+                Est error aspernatur et optio aliquid et ipsam sapiente sed provident sapiente et internos cupiditate ut fugiat voluptas aut labore quasi. Non rerum in ipsa dolores ad incidunt galisum ut ipsam eaque qui nulla labore
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script type="text/javascript" src="light_client.js"></script>
+</body>
+</html>

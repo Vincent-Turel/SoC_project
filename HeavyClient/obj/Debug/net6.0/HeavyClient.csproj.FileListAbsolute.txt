@@ -1,0 +1,15 @@
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\HeavyClient.exe
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\HeavyClient.deps.json
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\HeavyClient.runtimeconfig.json
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\HeavyClient.dll
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\ref\HeavyClient.dll
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\bin\Debug\net6.0\HeavyClient.pdb
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.csproj.AssemblyReference.cache
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.AssemblyInfoInputs.cache
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.AssemblyInfo.cs
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.csproj.CoreCompileInputs.cache
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.dll
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\ref\HeavyClient.dll
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.pdb
+D:\Documents\1_Cours\4A\S8\SoC\Project\HeavyClient\obj\Debug\net6.0\HeavyClient.genruntimeconfig.cache
