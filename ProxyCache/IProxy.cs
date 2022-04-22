@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace ProxyCache
 {
@@ -6,9 +7,9 @@ namespace ProxyCache
     public interface IProxy
     {
         [OperationContract]
-        JCDecauxItem GetAllStation();
+        Task<string> GetAllStation();
 
         [OperationContract]
-        JCDecauxItem GetStation(string key);
+        Task<string> GetStation(string key);
     }
 }

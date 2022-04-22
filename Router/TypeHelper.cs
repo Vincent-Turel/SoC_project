@@ -36,7 +36,7 @@ namespace Router
 
         public override string ToString()
         {
-            return coordinates[0] + "," + coordinates[1];
+            return (coordinates[0] + "").Replace(',', '.') + "," + (coordinates[1] + "").Replace(',', '.');
         }
     }
 }

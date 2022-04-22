@@ -1,17 +1,11 @@
-﻿namespace ProxyCache
+﻿using System.Threading.Tasks;
+
+namespace ProxyCache
 {
     public class Proxy : IProxy
     {
-        private readonly ProxyCache<JCDecauxItem> _proxyCache = new ProxyCache<JCDecauxItem>();
+        public Task<string> GetAllStation() => JCDecauxAPI.GetStationsAsync("all");
         
-        public JCDecauxItem GetAllStation()
-        {
-            return _proxyCache.Get("all");
-        }
-
-        public JCDecauxItem GetStation(string key)
-        {
-            return _proxyCache.Get("key");
-        }
+        public Task<string> GetStation(string key) => JCDecauxAPI.GetStationsAsync("key");
     }
 }

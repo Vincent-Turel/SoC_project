@@ -10,39 +10,30 @@ namespace ProxyCache
 {
     internal class ProxyCache<T>
     {
-        
         private readonly ObjectCache _cache = MemoryCache.Default;
-        
-        public ProxyCache() {}
+        private readonly Func<string, Task<T>> _handler;
 
-        public T Get(string nameOfItem)
+        public ProxyCache(Func<string, Task<T>> handler)
         {
-            return (T) _cache.AddOrGetExisting(nameOfItem, Activator.CreateInstance(typeof(T), nameOfItem), ObjectCache.InfiniteAbsoluteExpiration);
+            _handler = handler;
         }
-        
-        public T Get(string nameOfItem, double dt_seconds)
-        {
-            return (T) _cache.AddOrGetExisting(nameOfItem, Activator.CreateInstance(typeof(T), nameOfItem), 
-                new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddSeconds(dt_seconds) });
-        }
-        
-        public T Get(string nameOfItem, DateTimeOffset dt)
-        {
-            return (T) _cache.AddOrGetExisting(nameOfItem, Activator.CreateInstance(typeof(T), nameOfItem), 
-                new CacheItemPolicy { AbsoluteExpiration = dt});
-        }
-        
-        private void PrintAllCache(ObjectCache cache)
-        {
 
-            DateTime dt = DateTime.Now;
+        public async Task<T> Get(string nameOfItem) => 
+            await Get(nameOfItem, ObjectCache.InfiniteAbsoluteExpiration);
 
-            Console.WriteLine("All key-values at " + dt.Second);
-            //loop through all key-value pairs and print them
-            foreach (var item in cache)
+        public async Task<T> Get(string nameOfItem, double dt_seconds) =>
+            await Get(nameOfItem, DateTimeOffset.Now.AddSeconds(dt_seconds));
+
+        public async Task<T> Get(string nameOfItem, DateTimeOffset dt)
+        {
+            if (_cache.Get(nameOfItem) is T x)
             {
-                Console.WriteLine("cache object key-value: " + item.Key + "-" + item.Value);
+                return x;
             }
+
+            T value = await _handler(nameOfItem);
+            _cache.Add(nameOfItem, value, dt);
+            return value;
         }
     }
 }

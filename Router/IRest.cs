@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using System.ServiceModel.Web;
+using System.Threading.Tasks;
 
 
 namespace Router
@@ -11,6 +12,6 @@ namespace Router
 
         [OperationContract]
         [WebInvoke(UriTemplate = "pathway?start={start}&end={end}", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
-        string FindPathway(string start, string end);
+        Task<string> FindPathway(string start, string end);
     }
 }

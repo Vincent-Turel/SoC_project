@@ -10,27 +10,8 @@ namespace ProxyCache
     [DataContract]
     public class JCDecauxItem
     {
-        static readonly HttpClient client = new HttpClient();
-
         [DataMember]
         Station[] _stations { get; set; }
-
-        public JCDecauxItem(string cacheItemName)
-        {
-            if (cacheItemName == "all")
-            {
-                string responseBody = client.GetStringAsync("https://api.jcdecaux.com/vls/v3/stations?apiKey=7109d50b09d48cbb216a7365c27620f25bea3d3c").Result;
-                Station[] list = JsonSerializer.Deserialize<Station[]>(responseBody);
-                _stations = list;
-            }
-            else
-            {
-                string[] val = cacheItemName.Split('_');
-                string responseBody = client.GetStringAsync("https://api.jcdecaux.com/vls/v3/stations/" + val[0] + "?contract=" + val[1] + "&apiKey=7109d50b09d48cbb216a7365c27620f25bea3d3c").Result;
-                Station station  = JsonSerializer.Deserialize<Station>(responseBody);
-                _stations = new []{station};   
-            }
-        }
     }
     
     [DataContract]
