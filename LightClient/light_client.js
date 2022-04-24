@@ -25,7 +25,7 @@ function printItinerary() {
 
 function findPathway() {
     console.log('Retrieving pathway');
-    const targetUrl = "http://localhost:8733/Design_Time_Addresses/Router/Service1/api/pathway";
+    const targetUrl = "http://localhost:8733/Design_Time_Addresses/Router/RoutingService/rest/pathway";
     const requestType = "GET";
     let params = $("form").serialize();
 
