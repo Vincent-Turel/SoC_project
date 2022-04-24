@@ -127,8 +127,8 @@
     <Compile Include="JCDecauxTypeHelper.cs" />
     <Compile Include="OpenRouteServiceTypeHelper.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="RestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoutingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
