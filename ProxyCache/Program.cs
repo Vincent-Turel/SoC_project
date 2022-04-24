@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using System;
 
 namespace ProxyCache
 {
@@ -6,8 +7,10 @@ namespace ProxyCache
     {
         public static void Main()
         {
-            var variable = new ServiceHost(typeof(Proxy));
-            variable.Open();
+
+            Console.WriteLine("Starting of the proxy service !");
+            var service = new ServiceHost(typeof(Proxy));
+            service.Open();
         }
     }
 }

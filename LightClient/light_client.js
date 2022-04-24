@@ -13,29 +13,13 @@
 
 });
 
-function feedContractList() {
+function printItinerary() {
     if (this.status !== 200) {
         console.log("Contracts not retrieved. Check the error in the Network or Console tab.");
     } else {
         // The result is contained in "this.responseText". First step: transform it into a js object.
         const responseObject = JSON.parse(this.responseText);
-        // Second step: extract the contract names from the list.
-        let contracts = responseObject.map(function(contract) {
-            return contract.name;
-        });
-        // Third step: fill the datalist in the html.
-        let listContainer = document.getElementById("contractsList");
-        // Empty the list in case it had already been filled.
-        listContainer.innerHTML = "";
-        for (let i=0; i<contracts.length; i++) {
-            let currentContract = contracts[i];
-            // Create a <option> tag that will contain the contract value.
-            let option = document.createElement("option");
-            // <option>'s value needs to be in a "value" attribute.
-            option.setAttribute("value", currentContract);
-            // When the <option> is complete, add it to the list.
-            listContainer.appendChild(option);
-        }
+        console.log(responseObject);
     }
 }
 
@@ -44,8 +28,8 @@ function findPathway() {
     const targetUrl = "http://localhost:8733/Design_Time_Addresses/Router/Service1/api/pathway";
     const requestType = "GET";
     let params = $("form").serialize();
-    
-    const onFinish = feedContractList;
+
+    const onFinish = printItinerary;
 
     callAPI(targetUrl, requestType, params, onFinish);
     document.getElementById("result").textContent = "bonjour";
@@ -57,7 +41,7 @@ function callAPI(url, requestType, params, finishHandler) {
     if (params) {
         fullUrl += "?" + params;
     }
-    
+
     console.log(fullUrl);
     // The js class used to call external servers is XMLHttpRequest.
     const caller = new XMLHttpRequest();

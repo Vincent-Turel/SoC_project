@@ -1,9 +1,6 @@
-D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\ProxyCache.dll.config
-D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\ProxyCache.dll
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\ProxyCache.pdb
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.csproj.AssemblyReference.cache
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.csproj.CoreCompileInputs.cache
-D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.dll
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.pdb
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\System.Buffers.dll
@@ -32,3 +29,8 @@ D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\System.Text.Json.xml
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\System.ValueTuple.xml
 D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.csproj.CopyComplete
+D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\ProxyCache.exe.config
+D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\bin\Debug\ProxyCache.exe
+D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.csproj.SuggestedBindingRedirects.cache
+D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.exe.config
+D:\Documents\1_Cours\4A\S8\SoC\Project\ProxyCache\obj\Debug\ProxyCache.exe

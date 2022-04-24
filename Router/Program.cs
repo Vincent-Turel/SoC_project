@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
+using System;
 
 namespace Router
 {
@@ -10,6 +7,9 @@ namespace Router
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting of the routing service !");
+            var service = new ServiceHost(typeof(RoutingService));
+            service.Open();
         }
     }
 }
