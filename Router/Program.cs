@@ -7,9 +7,19 @@ namespace Router
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting of the routing service !");
-            var service = new ServiceHost(typeof(RoutingService));
-            service.Open();
+            try
+            {
+                Console.WriteLine("Starting of the routing service !");
+                var service = new ServiceHost(typeof(RoutingService));
+                service.Open();
+                Console.ReadLine();
+            } 
+            catch (Exception ex) 
+            { 
+                Console.WriteLine("il y a une erreur..."); 
+                Console.WriteLine(ex.Message);
+            }
+            
         }
     }
 }

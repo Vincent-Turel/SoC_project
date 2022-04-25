@@ -13,26 +13,91 @@
 
 });
 
+let layers = [];
+
 function printItinerary() {
+    while(layers.length) {
+        map.removeLayer(layers.pop())
+    }
     if (this.status !== 200) {
         console.log("Contracts not retrieved. Check the error in the Network or Console tab.");
     } else {
-        // The result is contained in "this.responseText". First step: transform it into a js object.
-        const responseObject = JSON.parse(this.responseText);
+        const responseObject = this.response;
         console.log(responseObject);
+
+        if (responseObject[responseObject.length-1]['error'] === 'true') {
+            document.getElementById("result").textContent = responseObject[responseObject.length-1]['textError'];
+            return;
+        }
+        for (let i = 0; i < responseObject.length-1; i++) {
+            let color = i % 2 === 0 ? '#002aff' : '#ff0000'
+            let coords = responseObject[i]['features'][0]['geometry']['coordinates'];
+            let lineString = new ol.geom.LineString(coords);
+
+            lineString.transform('EPSG:4326', 'EPSG:3857');
+
+            let feature = new ol.Feature({
+                geometry: lineString,
+                name: 'Line'
+            });
+
+            let lineStyle = new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: color,
+                    width: 3
+                })
+            });
+
+            let source = new ol.source.Vector({
+                features: [feature]
+            });
+
+            let vector = new ol.layer.Vector({
+                source: source,
+                style: [lineStyle]
+            });
+
+            layers.push(vector);
+            map.addLayer(vector);
+        }
+        showInstructions(responseObject);
     }
 }
 
+function showInstructions(responseObject) {
+    let steps = "";
+    for (let i = 0; i < responseObject.length-1; i++) {
+        let instructions = responseObject[i]['features'][0]['properties']['segments'][0]['steps']
+        for (let j = 0; j < instructions.length; j++) {
+            steps += "- " + instructions[j]['instruction'] + "\n";
+        }
+    }
+    let paragraph = document.getElementById("result");
+    paragraph.textContent = steps;
+    paragraph.setAttribute('style', 'white-space: pre-line;');
+
+}
+
 function findPathway() {
-    console.log('Retrieving pathway');
+    document.getElementById("result").textContent = "";
     const targetUrl = "http://localhost:8733/Design_Time_Addresses/Router/RoutingService/rest/pathway";
     const requestType = "GET";
+    if (document.getElementById('start').value === "" || document.getElementById('end').value === "") {
+        setTimeout(
+            () => document.getElementById("result").textContent = "Please fill both start and end destination fields",
+            100);
+        return;
+    } else {
+        setTimeout(() => {
+            console.log('Retrieving pathway');
+            document.getElementById("result").textContent = "Retrieving pathway...";
+        }, 100);
+    }
     let params = $("form").serialize();
 
     const onFinish = printItinerary;
 
     callAPI(targetUrl, requestType, params, onFinish);
-    document.getElementById("result").textContent = "bonjour";
 }
 
 function callAPI(url, requestType, params, finishHandler) {
@@ -50,6 +115,6 @@ function callAPI(url, requestType, params, finishHandler) {
     caller.setRequestHeader ("Accept", "application/json");
     // onload shall contain the function that will be called when the call is finished.
     caller.onload=finishHandler;
-
+    caller.responseType = 'json';
     caller.send();
 }

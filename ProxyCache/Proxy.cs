@@ -6,7 +6,7 @@ namespace ProxyCache
     {
         public Task<string> GetAllStation() => JCDecauxAPI.GetStationsAsync("all");
 
-        public Task<string> GetStation(string key) => JCDecauxAPI.GetStationsAsync("key");
+        public Task<string> GetStation(string key) => JCDecauxAPI.GetStationsAsync(key);
     }
 }
     

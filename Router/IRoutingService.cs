@@ -1,6 +1,8 @@
 ﻿using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 
 namespace Router
@@ -13,6 +15,6 @@ namespace Router
             UriTemplate = "pathway?start={start}&end={end}",
             ResponseFormat = WebMessageFormat.Json, 
             BodyStyle = WebMessageBodyStyle.Bare)]
-        Task<string> FindPathway(string start, string end);
+        Task<Stream> FindPathway(string start, string end);
     }
 }

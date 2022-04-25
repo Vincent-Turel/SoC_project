@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Caching;
-using System.Threading;
 
 namespace ProxyCache
 {
@@ -28,6 +24,7 @@ namespace ProxyCache
         {
             if (_cache.Get(nameOfItem) is T x)
             {
+                Console.WriteLine("Found item [{0}] in the cache.", nameOfItem);
                 return x;
             }
 
