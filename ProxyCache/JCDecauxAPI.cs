@@ -25,6 +25,9 @@ namespace ProxyCache
             return await response.Content.ReadAsStringAsync();
         }
 
-        public static async Task<string> GetStationsAsync(string nameOfItem) => await _cache.Get(nameOfItem);
+        public static async Task<string> GetStationsAsync(string nameOfItem) => await _cache.Get(nameOfItem, 60);
+
+        public static async Task<string> GetAllStationsAsync() => await _cache.Get("all");
+
     }
 }

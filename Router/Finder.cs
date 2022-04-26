@@ -16,9 +16,7 @@ namespace Router
         private const string API_KEY = "5b3ce3597851110001cf624813cdd2d934bc4b15add9f71c193a8d60";
         private static readonly ProxyClient proxyClient = new();
 
-        private Finder()
-        {
-        }
+        private Finder() {}
 
         public static Finder GetInstance() => _instance ??= new Finder();
 
@@ -60,6 +58,8 @@ namespace Router
                     {
                         Console.WriteLine("No stations found, returning walking itinerary.");
                         result.Add(await GetWalkingRoute(startCoordinate, endCoordinate));
+                        result.Add(obj);
+                        return result;  
                     }
 
                     (Station endStation, JObject endToStationData) = await GetClosestStation(endCoordinate, false);
@@ -67,6 +67,8 @@ namespace Router
                     {
                         Console.WriteLine("No stations found, returning walking itinerary.");
                         result.Add(await GetWalkingRoute(startCoordinate, endCoordinate));
+                        result.Add(obj);
+                        return result;
                     }
 
                     var ridingData = await GetRidingRoute(startStation.position.ToGeoCoordinate(),
@@ -127,14 +129,17 @@ namespace Router
             for (var i = 0; i < stations.Length; i += 5)
             {
                 var station = (await Task.WhenAll(stations.Skip(i).Take(5)
-                        .Where(s =>
+                        .Where(s => 
                         {
-                            var station = GetStationAsync(s.contractName + "_" + s.number).Result;
-                            //Console.WriteLine(station.contractName);
-                            //Console.WriteLine(station.contractName == "jcdecauxbike");
-                            return station.contractName != "jcdecauxbike" && (start
+                            if (s.contractName != "jcdecauxbike")
+                            {
+                                var station = GetStationAsync(s.contractName + "_" + s.number).Result;
+                                return (start
                                 ? station.totalStands.availabilities.bikes > 0
                                 : station.totalStands.capacity - station.totalStands.availabilities.bikes > 0);
+                            }
+                            return false;
+                            
                         })
                         .Select(async st => (st,
                             await GetWalkingRoute(coordinate, st.position.ToGeoCoordinate())))))
