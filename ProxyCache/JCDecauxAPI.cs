@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ProxyCache
 {
-    public class JCDecauxAPI
+    public static class JCDecauxAPI
     {
         private const string API_KEY = "7109d50b09d48cbb216a7365c27620f25bea3d3c";
         private const string URL = "https://api.jcdecaux.com/vls/v3/";

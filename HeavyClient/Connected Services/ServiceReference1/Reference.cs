@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RoutingService
+namespace ServiceReference1
 {
     
     
@@ -21,13 +21,13 @@ namespace RoutingService
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public interface IRoutingServiceChannel : RoutingService.IRoutingService, System.ServiceModel.IClientChannel
+    public interface IRoutingServiceChannel : ServiceReference1.IRoutingService, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public partial class RoutingServiceClient : System.ServiceModel.ClientBase<RoutingService.IRoutingService>, RoutingService.IRoutingService
+    public partial class RoutingServiceClient : System.ServiceModel.ClientBase<ServiceReference1.IRoutingService>, ServiceReference1.IRoutingService
     {
         
         /// <summary>
